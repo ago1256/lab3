@@ -91,8 +91,8 @@ Array_sequence<T>::Array_sequence(const Array_sequence<T>& other) {
 template <typename T>
 T Array_sequence<T>::get_first() const {
     if (get_length() == 0) {
-        errors_detection(Error::EMPTY_SEQ);
-        throw Error(Error::EMPTY_SEQ);
+        errors_detection(Error::EMPTY_CONTAINER);
+        throw Error(Error::EMPTY_CONTAINER);
     }
     return items->get(0);
 }
@@ -175,8 +175,8 @@ Sequence<T>* Array_sequence<T>::remove(int ind) {
     return this;
     }
     else {
-        errors_detection(Error::EMPTY_SEQ);
-        throw Error(Error::EMPTY_SEQ);
+        errors_detection(Error::EMPTY_CONTAINER);
+        throw Error(Error::EMPTY_CONTAINER);
     }
 }
 

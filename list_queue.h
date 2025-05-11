@@ -21,7 +21,13 @@ public:
     bool is_empty() const override;
     bool is_full() const override;
     int count() const override;
+    void print_queue() const override;
+
+    Queue<T>* concat(const Queue<T>& other) const;
+    Queue<T>* sub_queue(int start_ind, int end_ind) const;
+    Queue<T>* clone() const override;
     void clear() override;
+
     bool operator==(const Queue<T>& other) const override;
 };
 
@@ -53,8 +59,8 @@ void List_queue<T>::enqueue(const T& value) {
 template <typename T>
 T List_queue<T>::dequeue() {
     if (is_empty()) {
-        errors_detection(Error::EMPTY_SEQ); 
-        throw Error(Error::EMPTY_SEQ);
+        errors_detection(Error::EMPTY_CONTAINER); 
+        throw Error(Error::EMPTY_CONTAINER);
     }
     T front = list->get_index(0);
     list->remove(0);
@@ -64,8 +70,8 @@ T List_queue<T>::dequeue() {
 template <typename T>
 T& List_queue<T>::get_front() {
     if (is_empty()) {
-        errors_detection(Error::EMPTY_SEQ); 
-        throw Error(Error::EMPTY_SEQ);
+        errors_detection(Error::EMPTY_CONTAINER); 
+        throw Error(Error::EMPTY_CONTAINER);
     }
     return (*list)[0];
 }
@@ -89,6 +95,41 @@ template <typename T>
 int List_queue<T>::count() const {
     return list->get_length();
 }
+
+template <typename T>
+Queue<T>* List_queue<T>::concat(const Queue<T>& other) const{
+    Queue<T>* queue_res = new List_queue<T>(*this); ;
+    Queue<T>* other_copy = other.clone();
+    while(!(other_copy->is_empty())){
+        queue_res->enqueue(other_copy->dequeue());
+    }
+    delete other_copy;
+    return queue_res;
+}
+
+template <typename T>
+Queue<T>* List_queue<T>::sub_queue(int start_ind, int end_ind) const{
+    if (start_ind >= list->get_length()|| start_ind < 0 || end_ind >= list->get_length()|| end_ind < 0) {
+        errors_detection(Error::INVALID_INDEX); 
+        throw Error(Error::INVALID_INDEX);
+    }
+    List_queue<T>* queue_res = new List_queue<T>();
+    for(int i = start_ind; i<=end_ind; i++){
+        queue_res->enqueue((*list)[i]);
+    }
+    return queue_res;
+}
+
+template <typename T>
+Queue<T>* List_queue<T>::clone() const{
+    return new List_queue<T>(*this);
+}
+
+template <typename T>
+void List_queue<T>::print_queue() const{
+    list->print_seq();
+}
+
 
 template <typename T>
 void List_queue<T>::clear() {

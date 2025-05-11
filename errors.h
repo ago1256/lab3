@@ -9,7 +9,7 @@ enum class Error{
     IMMUT_SEQ = 1,
     INVALID_INDEX = 2,
     INVALID_ARGUMENT = 3,
-    EMPTY_SEQ = 4,
+    EMPTY_CONTAINER = 4,
     INCOMPATIBLE_TYPES = 5
 };
 

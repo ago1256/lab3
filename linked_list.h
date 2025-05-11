@@ -134,8 +134,8 @@ Linked_list<T>::~Linked_list() {
 template <class T>
 T Linked_list<T>::get_first() const {
     if (root == nullptr) {
-        errors_detection(Error::EMPTY_SEQ);
-        throw Error(Error::EMPTY_SEQ);
+        errors_detection(Error::EMPTY_CONTAINER);
+        throw Error(Error::EMPTY_CONTAINER);
     }
     return root->data;
 }
@@ -143,8 +143,8 @@ T Linked_list<T>::get_first() const {
 template <class T>
 T Linked_list<T>::get_last() const {
     if (root == nullptr) {
-        errors_detection(Error::EMPTY_SEQ); 
-        throw Error(Error::EMPTY_SEQ);
+        errors_detection(Error::EMPTY_CONTAINER); 
+        throw Error(Error::EMPTY_CONTAINER);
     }
 
     Node* curr = root;
@@ -157,8 +157,8 @@ T Linked_list<T>::get_last() const {
 template <class T>
 T Linked_list<T>::get(int index) const {
     if (root == nullptr) {
-        errors_detection(Error::EMPTY_SEQ);
-        throw Error(Error::EMPTY_SEQ);
+        errors_detection(Error::EMPTY_CONTAINER);
+        throw Error(Error::EMPTY_CONTAINER);
     }
 
     if (index < 0 || index >= size) {
@@ -248,8 +248,8 @@ void Linked_list<T>::insert_at(T item, int index) {
 template <class T>
 void Linked_list<T>::remove(int index) {
     if (size == 0) {
-        errors_detection(Error::EMPTY_SEQ); 
-        throw Error(Error::EMPTY_SEQ);
+        errors_detection(Error::EMPTY_CONTAINER); 
+        throw Error(Error::EMPTY_CONTAINER);
     }
     
     if (index < 0 || index >= size) {

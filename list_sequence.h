@@ -130,8 +130,8 @@ Sequence<T>* List_sequence<T>::insert_at(T item, int index) {
 template <typename T>
 Sequence<T>* List_sequence<T>::remove(int index) {
     if (list->get_length() == 0) {
-        errors_detection(Error::EMPTY_SEQ);
-        throw Error(Error::EMPTY_SEQ);
+        errors_detection(Error::EMPTY_CONTAINER);
+        throw Error(Error::EMPTY_CONTAINER);
     }
     list->remove(index);
     return this;

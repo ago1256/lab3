@@ -87,8 +87,8 @@ int Dynamic_array<T>::get_size() const {
 template <class T>
 void Dynamic_array<T>::remove(int index) {
     if (size == 0) {
-        errors_detection(Error::EMPTY_SEQ);
-        throw Error(Error::EMPTY_SEQ);
+        errors_detection(Error::EMPTY_CONTAINER);
+        throw Error(Error::EMPTY_CONTAINER);
     }
     if (index < 0 || index >= size) {
         errors_detection(Error::INVALID_INDEX); 

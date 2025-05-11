@@ -11,20 +11,15 @@ public:
     virtual T& get_front() = 0;
     virtual const T& get_front() const = 0;
 
-    // virtual T& GetRear() = 0;
-    // virtual const T& GetRear() const = 0;
-
     virtual bool is_empty() const = 0;
     virtual bool is_full() const = 0;
     virtual int count() const = 0;
     virtual void clear() = 0;
     virtual bool operator==(const Queue<T>& other) const = 0;
 
-    // virtual Queue<T>* Concat(const Queue<T>& other) const = 0;
-    // virtual Queue<T>* Subqueue(std::size_t start, std::size_t end) const = 0;
+    virtual Queue<T>* concat(const Queue<T>& other) const = 0;
+    virtual Queue<T>* sub_queue(int start, int end) const = 0;
 
-    // virtual bool ContainsSubqueue() const = 0;
-    // virtual std::pair<Queue<T>*, Queue<T>*> Split() const = 0;
 
     // virtual Queue<T>* Where() const = 0;
     // virtual Queue<T>* Map() const = 0;
@@ -32,9 +27,7 @@ public:
 
     virtual ~Queue() = default;
    // virtual const char* type_name() const = 0;
-    //virtual Queue<T>* clone() const = 0;
-
-   /////////////////////////////////////////////////////////
-    
+   virtual Queue<T>* clone() const = 0;
+   virtual void print_queue() const= 0;
 
 };

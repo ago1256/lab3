@@ -20,6 +20,11 @@ public:
     bool is_empty() const override;
     bool is_full() const override;
     int count() const override;
+    Queue<T>* clone() const override;
+    void print_queue() const override;
+
+    Queue<T>* concat(const Queue<T>& other) const;
+    Queue<T>* sub_queue(int start, int end) const;
     void clear() override;
     bool operator==(const Queue<T>& other) const override;
 };
@@ -53,8 +58,8 @@ void Array_queue<T>::enqueue(const T& value) {
 template <typename T>
 T Array_queue<T>::dequeue() {
     if (is_empty()) {
-        errors_detection(Error::EMPTY_SEQ);
-        throw Error(Error::EMPTY_SEQ);
+        errors_detection(Error::EMPTY_CONTAINER);
+        throw Error(Error::EMPTY_CONTAINER);
     }
     T front = items->get_index(0);
     items->remove(0);
@@ -64,8 +69,8 @@ T Array_queue<T>::dequeue() {
 template <typename T>
 T& Array_queue<T>::get_front() {
     if (is_empty()) {
-        errors_detection(Error::EMPTY_SEQ);
-        throw Error(Error::EMPTY_SEQ);
+        errors_detection(Error::EMPTY_CONTAINER);
+        throw Error(Error::EMPTY_CONTAINER);
     }
     return (*items)[0];
 }
@@ -96,8 +101,43 @@ void Array_queue<T>::clear() {
 }
 
 template <typename T>
+Queue<T>* Array_queue<T>::concat(const Queue<T>& other) const{
+    Queue<T>* queue_res = new Array_queue<T>(*this); 
+    Queue<T>* other_copy = other.clone();
+    while(!(other_copy->is_empty())){
+        queue_res->enqueue(other_copy->dequeue());
+    }
+    delete other_copy;
+    return queue_res;
+}
+
+template <typename T>
+Queue<T>*  Array_queue<T>::sub_queue(int start_ind, int end_ind) const{
+    if (start_ind >= items->get_length()|| start_ind < 0 || end_ind >= items->get_length()|| end_ind < 0) {
+        errors_detection(Error::INVALID_INDEX); 
+        throw Error(Error::INVALID_INDEX);
+    }
+    Array_queue<T>* queue_res = new Array_queue<T>();
+    for(int i = start_ind; i<=end_ind; i++){
+        queue_res->enqueue((*items)[i]);
+    }
+    return queue_res;
+}
+
+template <typename T>
+void Array_queue<T>::print_queue() const {
+    items->print_seq();
+}
+
+template <typename T>
+Queue<T>* Array_queue<T>::clone() const{
+    return new Array_queue<T>(*this);
+}
+
+template <typename T>
 bool Array_queue<T>::operator==(const Queue<T>& other) const {
     const Array_queue<T>& other_queue = dynamic_cast<const Array_queue<T>&>(other);
     return *items == *other_queue.items;
    
 }
+
