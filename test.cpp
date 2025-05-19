@@ -100,7 +100,6 @@ void test_array_queue_clear() {
     std::cout << "Тест пройден!\n" << std::endl;
 }
 
-
 void test_list_queue_enqueue() {
     std::cout << "Тест List_queue.enqueue()" << std::endl;
     
@@ -393,6 +392,64 @@ void test_list_stack_clear() {
     std::cout << "Тест пройден!\n" << std::endl;
 }
 
+void test_array_stack_pop_empty() {
+    std::cout << "Тест Array_stack.pop() на пустом стеке" << std::endl;
+    
+    Array_stack<int> stack;
+    try {
+        stack.pop();
+    } 
+    catch (Error er) {
+        assert(er == Error::EMPTY_CONTAINER);
+        std::cout << "Тест пройден!\n" << std::endl;
+    }
+}
+
+void test_list_stack_invalid_substack() {
+    std::cout << "Тест List_stack.sub_stack() с невалидными индексами" << std::endl;
+    
+    int arr[] = {10, 20, 30};
+    List_sequence<int> seq(arr, 3);
+    List_stack<int> stack(seq);
+    
+    try {
+        stack.sub_stack(-1, 1); 
+    }
+    catch (Error er) {
+        assert(er == Error::INVALID_INDEX);
+    }
+}
+
+void test_array_queue_dequeue_empty() {
+    std::cout << "Тест Array_queue.dequeue() на пустой очереди" << std::endl;
+    
+    Array_queue<std::string> queue;
+    try {
+        queue.dequeue();
+    }
+    catch (Error err) {
+        assert(err == Error::EMPTY_CONTAINER);
+        std::cout << "Тест пройден!\n" << std::endl;
+    }
+}
+
+void test_list_queue_invalid_subqueue() {
+    std::cout << "Тест List_queue.sub_queue() с неправильными индексами" << std::endl;
+    
+    List_queue<double> queue;
+    queue.enqueue(1.1);
+    queue.enqueue(2.2);
+    
+    try {
+        queue.sub_queue(0, 5);
+    }
+    catch (Error err) {
+        assert(err == Error::INVALID_INDEX);
+        std::cout << "Тест пройден!\n" << std::endl;
+    }
+}
+
+
 int main() {
     test_array_queue_enqueue();
     test_array_queue_dequeue();
@@ -421,6 +478,11 @@ int main() {
     test_list_stack_concat();
     test_list_stack_sub_stack();
     test_list_stack_clear();
+
+    test_array_stack_pop_empty();
+    test_list_stack_invalid_substack();
+    test_array_queue_dequeue_empty();
+    test_list_queue_invalid_subqueue();
 
     std::cout << "Все тесты успешно пройдены!" << std::endl;
     return 0;

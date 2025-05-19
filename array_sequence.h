@@ -169,15 +169,19 @@ Sequence<T>* Array_sequence<T>::insert_at(T item, int index) {
 
 template <typename T>
 Sequence<T>* Array_sequence<T>::remove(int ind) {
-    if (count>0){
-    items->remove(ind);
-    count--;
-    return this;
-    }
-    else {
+    if (count == 0) {
         errors_detection(Error::EMPTY_CONTAINER);
         throw Error(Error::EMPTY_CONTAINER);
     }
+
+    if (ind == count - 1) {
+        items->resize(count - 1); 
+        count--;
+    } else {
+        items->remove(ind);
+        count--;
+    }
+    return this;
 }
 
 template <typename T>

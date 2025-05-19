@@ -11,7 +11,7 @@ public:
     Array_queue();
     Array_queue(const Array_queue& other);
     Array_queue(const Array_sequence<T>& array);
-    ~Array_queue() override;
+    ~Array_queue()  = default;
 
     void enqueue(const T& value) override;
     T dequeue() override;
@@ -45,10 +45,6 @@ Array_queue<T>::Array_queue(const Array_queue& other) {
     items = new Array_sequence<T>(*other.items);
 }
 
-template <typename T>
-Array_queue<T>::~Array_queue() {
-    delete items;
-}
 
 template <typename T>
 void Array_queue<T>::enqueue(const T& value) {

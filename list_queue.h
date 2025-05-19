@@ -12,7 +12,7 @@ public:
     List_queue();
     List_queue(const List_queue& other);
     List_queue(const List_sequence<T>& list1);
-    ~List_queue() override;
+    ~List_queue()  = default;;
 
     void enqueue(const T& value) override;
     T dequeue() override;
@@ -44,11 +44,6 @@ List_queue<T>::List_queue(const List_sequence<T>& list1){
 template <typename T>
 List_queue<T>::List_queue(const List_queue& other) {
     list = new List_sequence<T>(*other.list);
-}
-
-template <typename T>
-List_queue<T>::~List_queue() {
-    delete list;
 }
 
 template <typename T>

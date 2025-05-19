@@ -18,7 +18,7 @@ void errors_detection(Error error) {
             std::cout << "Неправильный аргумент.\n";
         }
         if(error == Error::EMPTY_CONTAINER){
-            std::cout << "Пустая последовательность.\n";
+            std::cout << "Пустой контейнер.\n";
         }
         if(error == Error::INCOMPATIBLE_TYPES){
             std::cout << "Несовместимые типы.\n ";

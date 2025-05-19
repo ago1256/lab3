@@ -20,14 +20,8 @@ public:
     virtual Queue<T>* concat(const Queue<T>& other) const = 0;
     virtual Queue<T>* sub_queue(int start, int end) const = 0;
 
-
-    // virtual Queue<T>* Where() const = 0;
-    // virtual Queue<T>* Map() const = 0;
-    // virtual T Reduce() const = 0;
-
     virtual ~Queue() = default;
-   // virtual const char* type_name() const = 0;
-   virtual Queue<T>* clone() const = 0;
-   virtual void print_queue() const= 0;
+    virtual Queue<T>* clone() const = 0;
+    virtual void print_queue() const= 0;
 
 };

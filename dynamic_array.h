@@ -95,10 +95,12 @@ void Dynamic_array<T>::remove(int index) {
         throw Error(Error::INVALID_INDEX);
     }
 
-    for (int i = index; i < size - 1; ++i) {
-        data[i] = data[i + 1];
+    if (index != size - 1) {
+        for (int i = index; i < size - 1; ++i) {
+            data[i] = data[i + 1];
+        }
     }
-    size--; 
+    size--;  
 }
 
 template <class T>
@@ -122,6 +124,10 @@ void Dynamic_array<T>::resize(int new_size, const T& value) {
         size = 0;
         return;
     }
+    if (new_size < size) {
+        size = new_size;  
+        return;
+    }
 
     if (new_size > size*2){
         new_size = size*2;
@@ -133,7 +139,7 @@ void Dynamic_array<T>::resize(int new_size, const T& value) {
     for (int i = 0; i < elements_to_copy; i++) {
         new_data[i] = data[i];
     }
-    for (int i = size; i < new_size; i++) {
+    for (int i = elements_to_copy; i < new_size; i++) {
         new_data[i] = value;
     }
     delete[] data;

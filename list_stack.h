@@ -11,7 +11,7 @@ public:
     List_stack();
     List_stack(const List_sequence<T>& list1);
     List_stack(const List_stack& other);
-    ~List_stack() override;
+    ~List_stack()  = default;
     
     void push(const T& value) override;
     T pop() override;
@@ -47,11 +47,6 @@ List_stack<T>::List_stack(const List_stack& other) {
 }
 
 template <typename T>
-List_stack<T>::~List_stack() {
-    delete list;
-}
-
-template <typename T>
 void List_stack<T>::push(const T& value) {
     list->append(value);
 }
@@ -62,7 +57,7 @@ T List_stack<T>::pop() {
         errors_detection(Error::EMPTY_CONTAINER);
         throw Error(Error::EMPTY_CONTAINER);
     }
-    T top = list->get_index(list->get_length() - 1);
+    T top = list->get_last();
     list->remove(list->get_length() - 1);
     return top;
 }

@@ -11,7 +11,7 @@ public:
     Array_stack();
     Array_stack(const Array_stack& other);
     Array_stack(const Array_sequence<T>& array);
-    ~Array_stack() override;
+    ~Array_stack()  = default;;
     
     void push(const T& value) override;
     T pop() override;
@@ -46,24 +46,17 @@ Array_stack<T>::Array_stack(const Array_stack& other) {
 }
 
 template <typename T>
-Array_stack<T>::~Array_stack() {
-    delete items;
-}
-
-template <typename T>
 void Array_stack<T>::push(const T& value) {
     items->append(value);
 }
 
 template <typename T>
 T Array_stack<T>::pop() {
-    if (is_empty()) {
-        errors_detection(Error::EMPTY_CONTAINER);
-        throw Error(Error::EMPTY_CONTAINER);
-    }
-    T top = items->get_index(items->get_length() - 1);
-    items->remove(items->get_length() - 1);
+    T top = (*items)[items->get_length()-1];
+    items->remove(items->get_length()-1);
+
     return top;
+
 }
 
 template <typename T>
