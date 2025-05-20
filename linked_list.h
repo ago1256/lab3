@@ -27,6 +27,7 @@ public:
     T get_first() const;
     T get_last() const;
     T get(int index) const;
+    T remove_el(int index);
     Linked_list<T>* get_sub_list(int start_index, int end_index) const;
     int get_length() const;
 
@@ -271,6 +272,37 @@ void Linked_list<T>::remove(int index) {
         delete temp;
     }
     size--;
+}
+
+template <class T>
+T Linked_list<T>::remove_el(int index){
+    T tmp;
+    if (size == 0) {
+        errors_detection(Error::EMPTY_CONTAINER); 
+        throw Error(Error::EMPTY_CONTAINER);
+    }
+    
+    if (index < 0 || index >= size) {
+        errors_detection(Error::INVALID_INDEX); 
+        throw Error(Error::INVALID_INDEX);
+    }
+
+    if (index == 0) {
+        Node* temp = root;
+        root = root->next;
+        delete temp;
+    } else {
+        Node* curr = root;
+        for (int i = 0; i < index - 1; i++) {
+            curr = curr->next;
+        }
+        Node* temp = curr->next;
+        curr->next = temp->next;
+        tmp = temp->data;
+        delete temp;
+    }
+    size--;
+    return tmp;
 }
 
 template <class T>

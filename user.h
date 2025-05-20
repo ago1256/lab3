@@ -34,6 +34,5 @@ struct User{
         return i;
     }
     
-    
 };
 

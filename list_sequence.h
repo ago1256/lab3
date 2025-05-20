@@ -30,6 +30,7 @@ public:
     Sequence<T>* prepend(T item) override;
     Sequence<T>* insert_at(T item, int index) override;
     Sequence<T>* remove(int index) override;
+    T remove_el(int index);
 
     void print_seq() const;
     bool operator==(const Sequence<T>& other) const override;
@@ -135,6 +136,16 @@ Sequence<T>* List_sequence<T>::remove(int index) {
     }
     list->remove(index);
     return this;
+}
+
+template <typename T>
+T List_sequence<T>::remove_el(int index) {
+    if (list->get_length() == 0) {
+        errors_detection(Error::EMPTY_CONTAINER);
+        throw Error(Error::EMPTY_CONTAINER);
+    }
+    T tmp = list->remove_el(index);
+    return tmp;
 }
 
 template <typename T>

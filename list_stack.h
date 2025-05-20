@@ -57,8 +57,7 @@ T List_stack<T>::pop() {
         errors_detection(Error::EMPTY_CONTAINER);
         throw Error(Error::EMPTY_CONTAINER);
     }
-    T top = list->get_last();
-    list->remove(list->get_length() - 1);
+    T top = list->remove_el(list->get_length() - 1);
     return top;
 }
 

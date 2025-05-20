@@ -48,7 +48,7 @@ void test_list_stack_sub_stack();
 void test_list_stack_clear();
 
 void test_array_stack_pop_empty();
-void test_list_stack_invalid_substack();
+void test_list_stack_invalid_sub_stack();
 void test_array_queue_dequeue_empty();
-void test_list_queue_invalid_subqueue();
+void test_list_queue_invalid_sub_queue();
 void test_concat_incompatible_types();

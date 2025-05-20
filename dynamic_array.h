@@ -90,11 +90,10 @@ void Dynamic_array<T>::remove(int index) {
         errors_detection(Error::EMPTY_CONTAINER);
         throw Error(Error::EMPTY_CONTAINER);
     }
-    if (index < 0 || index >= size) {
+    if (index < 0 || index >= size && size != 0) {
         errors_detection(Error::INVALID_INDEX); 
         throw Error(Error::INVALID_INDEX);
     }
-
     if (index != size - 1) {
         for (int i = index; i < size - 1; ++i) {
             data[i] = data[i + 1];

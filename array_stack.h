@@ -54,9 +54,7 @@ template <typename T>
 T Array_stack<T>::pop() {
     T top = (*items)[items->get_length()-1];
     items->remove(items->get_length()-1);
-
     return top;
-
 }
 
 template <typename T>

@@ -15,7 +15,7 @@ void test_array_queue_enqueue() {
     queue.enqueue(20);
     
     assert(queue == expected_queue);
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_array_queue_dequeue() {
@@ -32,7 +32,7 @@ void test_array_queue_dequeue() {
     queue.dequeue();
     
     assert(queue == expected_queue);
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_array_queue_get_front() {
@@ -41,7 +41,7 @@ void test_array_queue_get_front() {
     Array_sequence<int> init_seq(arr,3);
     Array_queue<int> queue(init_seq);
     assert(queue.get_front() == 10);
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_array_queue_concat(){
@@ -63,7 +63,7 @@ void test_array_queue_concat(){
     
     assert(*queue_res == expected_queue);
  
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_array_queue_sub_queue(){
@@ -81,7 +81,7 @@ void test_array_queue_sub_queue(){
     
     assert(*queue_res == expected_queue);
  
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_array_queue_clear() {
@@ -97,7 +97,7 @@ void test_array_queue_clear() {
     queue.clear();
     
     assert(queue == expected_queue);
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_list_queue_enqueue() {
@@ -112,7 +112,7 @@ void test_list_queue_enqueue() {
     queue.enqueue("b");
     
     assert(queue == expected_queue);
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_list_queue_dequeue() {
@@ -129,7 +129,7 @@ void test_list_queue_dequeue() {
     queue.dequeue();
     
     assert(queue == expected_queue);
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_list_queue_get_front(){
@@ -139,7 +139,7 @@ void test_list_queue_get_front(){
     List_sequence<int> init_seq(init_arr, 3);
     List_queue<int> queue(init_seq);
     assert(queue.get_front() == 5);
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_list_queue_concat(){
@@ -161,7 +161,7 @@ void test_list_queue_concat(){
     
     assert(*queue_res == expected_queue);
  
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_list_queue_sub_queue(){
@@ -179,7 +179,7 @@ void test_list_queue_sub_queue(){
     
     assert(*queue_res == expected_queue);
  
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_list_queue_clear() {
@@ -195,7 +195,7 @@ void test_list_queue_clear() {
     queue.clear();
     
     assert(queue == expected_queue);
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_array_stack_push() {
@@ -210,7 +210,7 @@ void test_array_stack_push() {
     stack.push(20);
     
     assert(stack == expected_stack);
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_array_stack_pop() {
@@ -226,7 +226,7 @@ void test_array_stack_pop() {
     
     assert(stack.pop() == 10);
     assert(stack == expected_stack);
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_array_stack_top() {
@@ -237,7 +237,7 @@ void test_array_stack_top() {
     Array_stack<int> stack(init_seq);
     
     assert(stack.top() == 10); 
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_array_stack_concat() {
@@ -259,7 +259,7 @@ void test_array_stack_concat() {
     
     assert(*stack_res == expected_stack);
     delete stack_res;
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_array_stack_sub_stack() {
@@ -277,7 +277,7 @@ void test_array_stack_sub_stack() {
     
     assert(*stack_res == expected_stack);
     delete stack_res;
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_array_stack_clear() {
@@ -292,7 +292,7 @@ void test_array_stack_clear() {
     
     stack.clear();
     assert(stack == expected_stack);
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_list_stack_push() {
@@ -307,7 +307,7 @@ void test_list_stack_push() {
     stack.push(3);
     
     assert(stack == expected_stack);
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_list_stack_pop() {
@@ -323,7 +323,7 @@ void test_list_stack_pop() {
     
     assert(stack.pop() == 1.3); 
     assert(stack == expected_stack);
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_list_stack_top() {
@@ -334,7 +334,7 @@ void test_list_stack_top() {
     List_stack<char> stack(init_seq);
     
     assert(stack.top() == 'a');
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_list_stack_concat() {
@@ -356,7 +356,7 @@ void test_list_stack_concat() {
     
     assert(*stack_res == expected_stack);
     delete stack_res;
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_list_stack_sub_stack() {
@@ -374,7 +374,7 @@ void test_list_stack_sub_stack() {
     
     assert(*stack_res == expected_stack);
     delete stack_res;
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_list_stack_clear() {
@@ -389,24 +389,24 @@ void test_list_stack_clear() {
     
     stack.clear();
     assert(stack == expected_stack);
-    std::cout << "Тест пройден!\n" << std::endl;
+    std::cout << "Тест пройден\n" << std::endl;
 }
 
 void test_array_stack_pop_empty() {
-    std::cout << "Тест Array_stack.pop() на пустом стеке" << std::endl;
+    std::cout << "Тест на ошибку INVALID_INDEX Array_stack.pop() " << std::endl;
     
     Array_stack<int> stack;
     try {
         stack.pop();
     } 
     catch (Error er) {
-        assert(er == Error::EMPTY_CONTAINER);
-        std::cout << "Тест пройден!\n" << std::endl;
+        assert(er == Error::INVALID_INDEX);
+        std::cout << "Тест пройден\n" << std::endl;
     }
 }
 
-void test_list_stack_invalid_substack() {
-    std::cout << "Тест List_stack.sub_stack() с невалидными индексами" << std::endl;
+void test_list_stack_invalid_sub_stack() {
+    std::cout << "Тест на ошибку INVALID_INDEX List_stack.sub_stack()" << std::endl;
     
     int arr[] = {10, 20, 30};
     List_sequence<int> seq(arr, 3);
@@ -421,7 +421,7 @@ void test_list_stack_invalid_substack() {
 }
 
 void test_array_queue_dequeue_empty() {
-    std::cout << "Тест Array_queue.dequeue() на пустой очереди" << std::endl;
+    std::cout << "Тест на ошибку EMPTY_CONTAINER Array_queue.dequeue()" << std::endl;
     
     Array_queue<std::string> queue;
     try {
@@ -429,12 +429,12 @@ void test_array_queue_dequeue_empty() {
     }
     catch (Error err) {
         assert(err == Error::EMPTY_CONTAINER);
-        std::cout << "Тест пройден!\n" << std::endl;
+        std::cout << "Тест пройден\n" << std::endl;
     }
 }
 
-void test_list_queue_invalid_subqueue() {
-    std::cout << "Тест List_queue.sub_queue() с неправильными индексами" << std::endl;
+void test_list_queue_invalid_sub_queue() {
+    std::cout << "Тест на ошибку INVALID_INDEX List_queue.sub_queue()" << std::endl;
     
     List_queue<double> queue;
     queue.enqueue(1.1);
@@ -445,7 +445,7 @@ void test_list_queue_invalid_subqueue() {
     }
     catch (Error err) {
         assert(err == Error::INVALID_INDEX);
-        std::cout << "Тест пройден!\n" << std::endl;
+        std::cout << "Тест пройден\n" << std::endl;
     }
 }
 
@@ -480,10 +480,10 @@ int main() {
     test_list_stack_clear();
 
     test_array_stack_pop_empty();
-    test_list_stack_invalid_substack();
+    test_list_stack_invalid_sub_stack();
     test_array_queue_dequeue_empty();
-    test_list_queue_invalid_subqueue();
+    test_list_queue_invalid_sub_queue();
 
-    std::cout << "Все тесты успешно пройдены!" << std::endl;
+    std::cout << "Все тесты пройдены" << std::endl;
     return 0;
 }

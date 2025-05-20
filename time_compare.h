@@ -19,5 +19,6 @@
 
 #include"errors.h"
 
-void compare_enqueue();
-void  compare_dequeue();
+void test_sequences(int count);
+void test_queues(int count);
+void test_stacks(int count);

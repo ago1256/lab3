@@ -174,13 +174,11 @@ Sequence<T>* Array_sequence<T>::remove(int ind) {
         throw Error(Error::EMPTY_CONTAINER);
     }
 
-    if (ind == count - 1) {
-        items->resize(count - 1); 
-        count--;
-    } else {
-        items->remove(ind);
-        count--;
+
+    if (ind != count - 1) {
+        items->remove(ind); 
     }
+    count--;
     return this;
 }
 
